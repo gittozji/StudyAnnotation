@@ -1,8 +1,7 @@
 package entity;
 
-import annotation.AutoIncrement;
 import annotation.Column;
-import annotation.PrimaryKey;
+import annotation.Id;
 import annotation.Table;
 
 /**
@@ -11,12 +10,11 @@ import annotation.Table;
  */
 @Table(name = "user")
 public class User {
-    @PrimaryKey
-    @AutoIncrement
+    @Id
     @Column(name = "id", type = "int(11)")
     Long id;
 
-    @Column(name = "vc_name", type = "varchar(20)", notNull = true, unique = true)
+    @Column(name = "vc_username", type = "varchar(20)", notNull = true, unique = true)
     String username;
 
     @Column(name = "vc_password", type = "varchar(60)", notNull = true)

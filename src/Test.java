@@ -1,4 +1,5 @@
 import core.CreateTableManager;
+import core.JDBCManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
  */
 public class Test {
     public static final void main(String[] args) {
+        new JDBCManager();
         CreateTableManager manager = new CreateTableManager();
         try {
             manager.work();

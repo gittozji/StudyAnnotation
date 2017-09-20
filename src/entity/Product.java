@@ -1,8 +1,7 @@
 package entity;
 
-import annotation.AutoIncrement;
 import annotation.Column;
-import annotation.PrimaryKey;
+import annotation.Id;
 import annotation.Table;
 
 /**
@@ -11,8 +10,7 @@ import annotation.Table;
  */
 @Table(name = "product")
 public class Product {
-    @PrimaryKey
-    @AutoIncrement
+    @Id
     @Column(name = "id", type = "int(11)")
     Long id;
 

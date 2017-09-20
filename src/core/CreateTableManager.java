@@ -1,12 +1,10 @@
 package core;
 
-import annotation.AutoIncrement;
 import annotation.Column;
-import annotation.PrimaryKey;
+import annotation.Id;
 import annotation.Table;
 
 import java.io.File;
-import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,20 +54,13 @@ public class CreateTableManager {
         String sql = "create table " + tableName + "(";
         //
         Field[] fields = cls.getDeclaredFields();
-        PrimaryKey primaryKey;
-        AutoIncrement autoIncrement;
         Column column;
+        Id id;
         for (Field field : fields) {
-            String primaryKeyStr = "";
-            primaryKey = (PrimaryKey) field.getAnnotation(PrimaryKey.class);
-            if (primaryKey != null) {
-                primaryKeyStr = "primary key ";
-            }
-            //
-            String autoIncrementStr = "";
-            autoIncrement = (AutoIncrement) field.getAnnotation(AutoIncrement.class);
-            if (autoIncrement != null) {
-                autoIncrementStr = "auto_increment ";
+            String idStr = "";
+            id = (Id) field.getAnnotation(Id.class);
+            if (id != null) {
+                idStr = "primary key auto_increment ";
             }
             //
             column = (Column) field.getAnnotation(Column.class);
@@ -77,8 +68,7 @@ public class CreateTableManager {
                     + (column.notNull() == true ? "not null " : "")
                     + (column.unique() == true ? "unique " : "")
                     + column.otherDefinition()
-                    + primaryKeyStr
-                    + autoIncrementStr
+                    + idStr
                     + ",";
         }
         //
@@ -86,8 +76,10 @@ public class CreateTableManager {
             if (sql.endsWith(",")) {
                 sql = sql.substring(0, sql.lastIndexOf(","));
             }
-            sql += ");";
+        } else {
+            sql += otherDefinition;
         }
+        sql += ");";
         //
         return sql;
     }

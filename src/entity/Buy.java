@@ -1,8 +1,7 @@
 package entity;
 
-import annotation.AutoIncrement;
 import annotation.Column;
-import annotation.PrimaryKey;
+import annotation.Id;
 import annotation.Table;
 
 /**
@@ -12,16 +11,16 @@ import annotation.Table;
 @Table(name = "buy", otherDefinition = "constraint fk_user foreign key(vc_username) references user(vc_username)," +
         "constraint fk_product foreign key(vc_product_code) references product(vc_code)")
 public class Buy {
-    @PrimaryKey
-    @AutoIncrement
+    @Id
     @Column(name = "id", type = "int(11)")
     Long id;
 
-    @Column(name = "date", type = "varchar(8)")
+    @Column(name = "vc_date", type = "varchar(8)")
     String date;
 
-    @Column(name = "username", type = "varchar(20)")
+    @Column(name = "vc_username", type = "varchar(20)")
     String username;
 
+    @Column(name = "vc_productCode", type = "varchar(10)")
     String productCode;
 }
