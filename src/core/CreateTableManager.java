@@ -84,12 +84,12 @@ public class CreateTableManager {
         return sql;
     }
 
-    public void work() throws ClassNotFoundException {
+    public String work() throws ClassNotFoundException {
         String sql = "";
         List<String> createSqls = createSqls(getClazzs(getClassNames("entity")));
         for (String str : createSqls) {
             sql += str;
         }
-        System.out.println(sql);
+        return sql;
     }
 }

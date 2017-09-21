@@ -21,6 +21,38 @@ public class Buy {
     @Column(name = "vc_username", type = "varchar(20)")
     String username;
 
-    @Column(name = "vc_productCode", type = "varchar(10)")
+    @Column(name = "vc_product_code", type = "varchar(10)")
     String productCode;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
 }
