@@ -58,14 +58,14 @@ public class JDBCManager {
         }
     }
 
-    public Object get(Class clazz, Object id) {
-        Object obj = null;
+    public <T> T get(Class<T> clazz, Object id) {
+        T obj = null;
         try {
             List<Object> objects = new ArrayList<>();
             Table aTable = (Table) clazz.getAnnotation(Table.class);
             if (aTable == null) {
                 System.out.println(clazz.getName() + "没有被@Table注解");
-                return 0;
+                return null;
             }
             //
             String statement = "";

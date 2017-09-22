@@ -55,4 +55,14 @@ public class Buy {
     public void setProductCode(String productCode) {
         this.productCode = productCode;
     }
+
+    @Override
+    public String toString() {
+        return "Buy{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", username='" + username + '\'' +
+                ", productCode='" + productCode + '\'' +
+                '}';
+    }
 }

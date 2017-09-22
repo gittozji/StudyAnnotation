@@ -76,4 +76,16 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", sex='" + sex + '\'' +
+                '}';
+    }
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 测试类
  * Created by imyu on 2017-09-15.
  */
 public class Test {
@@ -31,7 +32,7 @@ public class Test {
         //更新
         System.out.println("更新 " + manager.executeUpdate("update user set vc_password = ?", "1234") + " 条记录");
         //
-        user = (User) manager.get(User.class, 1L);
+        user = manager.get(User.class, 1L);
         //更新
         user.setBirthday("20170921");
         System.out.println("更新 " + manager.update(user) + " 条记录");
